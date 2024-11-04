@@ -30,7 +30,7 @@ func (app *application) showFlowerHandler(w http.ResponseWriter, r *http.Request
 		Version: 1,
 	}
 
-	err = app.writeJSON(w, http.StatusOK, flower, nil) 
+	err = app.writeJSON(w, http.StatusOK, envelope{"flower": flower}, nil) 
 	if err != nil{
 		app.logger.Error(err.Error())
 		http.Error(w, "server encountered problem" ,http.StatusInternalServerError)
